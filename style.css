@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+header {
+  text-align: center;
+  margin: 25px 0;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+}
+
+.stats {
+  display: flex;
+  gap: 35px;
+  font-size: 1.3rem;
+}
+
+.game-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 520px;
+}
+
+.card {
+  width: 110px;
+  height: 110px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  font-size: 2.5rem;
+}
+
+.card-back {
+  background: white;
+  transform: rotateY(180deg);
+  padding: 15px;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.matched {
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+button {
+  margin-top: 30px;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  background: white;
+  color: #1e40af;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.win-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(15, 23, 42, 0.95);
+  padding: 50px 70px;
+  border-radius: 20px;
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 2.2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
